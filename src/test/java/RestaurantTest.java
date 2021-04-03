@@ -66,13 +66,15 @@ class RestaurantTest {
     @Test
     public void getOrderTotal_should_return_0_if_no_item_is_selected(){
         List<String> items = new ArrayList<String>();
-        assertEquals(0, restaurant.getOrderTotal());
+        assertEquals(0, restaurant.getOrderTotal(items));
     }
 
     @Test
     public void getOrderTotal_should_return_expected_order_total(){
         List<String> items = new ArrayList<String>();
-        assertEquals(388, restaurant.getOrderTotal());
+        items.add("Sweet corn soup");
+        items.add("Vegetable lasagne");
+        assertEquals(388, restaurant.getOrderTotal(items));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
