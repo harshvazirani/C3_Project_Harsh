@@ -3,8 +3,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.mockito.Spy;
+import java.util.List;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -59,4 +61,18 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void getOrderTotal_should_return_0_if_no_item_is_selected(){
+        List<String> items = new ArrayList<String>();
+        assertEquals(0, restaurant.getOrderTotal());
+    }
+
+    @Test
+    public void getOrderTotal_should_return_expected_order_total(){
+        List<String> items = new ArrayList<String>();
+        assertEquals(388, restaurant.getOrderTotal());
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
